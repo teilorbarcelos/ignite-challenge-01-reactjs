@@ -48,8 +48,12 @@ export function TaskList() {
     // Remova uma task da listagem pelo ID
 
     setTasks(() => {
-      let newTasks = [...tasks]
-      newTasks.splice(id, 1)
+      let newTasks = [] as Task[]
+      tasks.map(task => {
+        if (task.id !== id) {
+          newTasks.push(task)
+        }
+      })
       return newTasks
     })
   }
